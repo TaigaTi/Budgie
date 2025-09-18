@@ -1,9 +1,9 @@
 
 import { Routes } from '@angular/router';
-import { Dashboard } from './dashboard/dashboard';
+import { Dashboard } from './shared/pages/dashboard/dashboard';
 import { Transactions } from './transactions/transactions';
-import { Analytics } from './analytics/analytics';
-import { Profile } from './profile/profile';
+import { Analytics } from './shared/pages/analytics/analytics';
+import { Profile } from './shared/pages/profile/profile';
 
 export const routes: Routes = [
 	{ path: '', redirectTo: 'dashboard', pathMatch: 'full' },

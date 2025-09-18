@@ -1,0 +1,39 @@
+<div class="container">
+  <h2 id="page-title">Dashboard</h2>
+
+  <div class="summary-cards">
+    <app-dashboard-card
+      [title]="'Total Balance'"
+      [amount]="'$0.00'"
+      [icon]="'💵'"
+      [detail]="'+0.0% from income'"
+    ></app-dashboard-card>
+    <app-dashboard-card
+      [title]="'Income'"
+      [amount]="'$0.00'"
+      [icon]="'📈'"
+      [detail]="'0 transactions'"
+    ></app-dashboard-card>
+    <app-dashboard-card
+      [title]="'Expenses'"
+      [amount]="'$0.00'"
+      [icon]="'📉'"
+      [detail]="'0 transactions'"
+    ></app-dashboard-card>
+    <app-dashboard-card
+      [title]="'Savings'"
+      [amount]="'0.0%'"
+      [icon]="'💰'"
+      [detail]="'of total income saved'"
+    ></app-dashboard-card>
+  </div>
+  <div class="recent-activity">
+    <p id="recent-activity-title">Recent Activity</p>
+    <div class="activity-cards">
+      <app-activity-card></app-activity-card>
+      <app-activity-card></app-activity-card>
+      <app-activity-card></app-activity-card>
+      <app-activity-card></app-activity-card>
+    </div>
+  </div>
+</div>

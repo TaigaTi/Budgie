@@ -1,0 +1,23 @@
+.container {
+    border: 1px solid rgb(205, 205, 205);
+    border-radius: 15px;
+    padding: 0.5rem 1rem;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#title, #icon {
+    font-size: 1rem;
+}
+
+#amount {
+    font-size: 1.5rem;
+}
+
+#detail {
+    color: rgb(124, 124, 124);
+}

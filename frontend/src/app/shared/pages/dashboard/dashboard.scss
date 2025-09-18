@@ -1,0 +1,25 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 2rem;
+}
+
+.summary-cards {
+    display: grid;
+    grid-template-columns: repeat((4, 1fr));
+    gap: 1rem;
+}
+
+.recent-activity {
+    border: 1px solid rgb(205, 205, 205);
+    border-radius: 15px;
+    padding: 0.5rem 2rem;
+}
+
+.activity-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
