@@ -1,0 +1,37 @@
+<div class="transactions-page">
+	<h2 class="transactions-title">Transaction History</h2>
+	<p class="transactions-subtitle">Manage your income and expenses</p>
+	<div class="filters-card">
+		<div class="filters-label">Filters</div>
+		<div class="transactions-toolbar">
+			<div class="search-group">
+				<input type="text" class="search-input" placeholder="Search transactions...">
+			</div>
+			<select class="filter-select">
+				<option value="all">All Types</option>
+				<option value="income">Income</option>
+				<option value="expense">Expense</option>
+			</select>
+			<select class="filter-select">
+				<option value="all">All Categories</option>
+				<option value="salary">Salary</option>
+				<option value="freelance">Freelance</option>
+				<option value="shopping">Shopping</option>
+				<option value="food">Food</option>
+				<option value="bills">Bills</option>
+				<option value="other">Other</option>
+			</select>
+		</div>
+	</div>
+	<div class="transactions-list-card">
+		<div class="transactions-list-header">
+			Transactions (5)
+		</div>
+		<div class="transactions-list">
+			<!-- Example activity cards, replace with *ngFor in real app -->
+			<app-activity-card></app-activity-card>
+			<app-activity-card></app-activity-card>
+			<app-activity-card></app-activity-card>
+		</div>
+	</div>
+</div>

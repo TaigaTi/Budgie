@@ -1,0 +1,91 @@
+
+.transactions-page {
+    padding: 2rem;
+}
+
+.transactions-title {
+	font-size: 1.5rem;
+	font-weight: 700;
+	margin-bottom: 0.25rem;
+	color: #222;
+	letter-spacing: 0.01em;
+}
+
+.transactions-subtitle {
+	color: #757575;
+	margin-bottom: 2rem;
+	font-size: 1.1rem;
+}
+
+.filters-card {
+	background: #fff;
+	border: 1px solid #e0e0e0;
+	border-radius: 14px;
+	padding: 1.25rem 1.5rem 1.5rem 1.5rem;
+	margin-bottom: 2.5rem;
+	box-shadow: 0 1px 6px 0 rgba(60,60,60,0.04);
+}
+
+.filters-label {
+	font-weight: 500;
+	color: #757575;
+	margin-bottom: 1rem;
+}
+
+.transactions-toolbar {
+	display: flex;
+	gap: 1rem;
+	align-items: center;
+}
+
+.search-group {
+	position: relative;
+	flex: 1;
+	display: flex;
+	align-items: center;
+}
+
+.search-input {
+	width: 100%;
+	padding: 0.5rem 1rem 0.5rem 2.25rem;
+	border: 1px solid #ededed;
+	border-radius: 8px;
+	font-size: 1rem;
+	background: #fafbfc;
+	transition: border 0.2s;
+}
+
+.search-input:focus {
+	border: 1.5px solid #4a90e2;
+	outline: none;
+}
+
+.filter-select {
+	padding: 0.5rem 1.5rem 0.5rem 1rem;
+	border: 1px solid #ededed;
+	border-radius: 8px;
+	font-size: 1rem;
+	background: #fafbfc;
+	min-width: 140px;
+}
+
+.transactions-list-card {
+	background: #fff;
+	border: 1px solid #e0e0e0;
+	border-radius: 14px;
+	box-shadow: 0 1px 6px 0 rgba(60,60,60,0.04);
+	padding: 1.5rem 1.5rem 1.25rem 1.5rem;
+}
+
+.transactions-list-header {
+	font-weight: 500;
+	color: #222;
+	margin-bottom: 1.25rem;
+	font-size: 1.1rem;
+}
+
+.transactions-list {
+	display: flex;
+	flex-direction: column;
+	gap: 1.25rem;
+}
