@@ -2,6 +2,8 @@
 
 Welcome, developer! This is the dev documentation for **Budgie** — a fun and friendly full-stack expense tracker built with Angular, Node.js, Prisma, and Docker.
 
+![preview](image/README-DEV/preview.png)
+
 ---
 
 ## 📁 Folder Structure
