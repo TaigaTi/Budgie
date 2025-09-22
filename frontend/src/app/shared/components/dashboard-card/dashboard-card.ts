@@ -1,3 +1,4 @@
+import { CurrencyPipe } from '@angular/common';
 import { Component, Input } from '@angular/core';
 
 @Component({
@@ -9,6 +10,6 @@ import { Component, Input } from '@angular/core';
 export class DashboardCard {
   @Input() title!: string;
   @Input() icon!: string;
-  @Input() amount!: string;
+  @Input() amount!: CurrencyPipe;
   @Input() detail!: string;
 }

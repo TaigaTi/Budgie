@@ -4,19 +4,19 @@
   <div class="summary-cards">
     <app-dashboard-card
       [title]="'Total Balance'"
-      [amount]="'$0.00'"
+      [amount]="transactionSummary.total.toString() | currency"
       [icon]="'💵'"
       [detail]="'+0.0% from income'"
     ></app-dashboard-card>
     <app-dashboard-card
       [title]="'Income'"
-      [amount]="'$0.00'"
+      [amount]="transactionSummary.income.toString() | currency"
       [icon]="'📈'"
       [detail]="'0 transactions'"
     ></app-dashboard-card>
     <app-dashboard-card
       [title]="'Expenses'"
-      [amount]="'$0.00'"
+      [amount]="transactionSummary.expense.toString() | currency"
       [icon]="'📉'"
       [detail]="'0 transactions'"
     ></app-dashboard-card>
