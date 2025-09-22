@@ -28,10 +28,14 @@
 			Transactions (5)
 		</div>
 		<div class="transactions-list">
-			<!-- Example activity cards, replace with *ngFor in real app -->
-			<app-activity-card></app-activity-card>
-			<app-activity-card></app-activity-card>
-			<app-activity-card></app-activity-card>
+			@for (transaction of transactions; track transaction.id) {
+				<app-activity-card
+					[title]="transaction.title"
+					[description]="transaction.description"
+					[amount]="(transaction.amount | currency)!"
+					[date]="(transaction.date | date:'shortDate')!"
+				></app-activity-card>
+			}
 		</div>
 	</div>
 </div>
