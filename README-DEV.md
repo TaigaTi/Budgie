@@ -27,15 +27,30 @@ budgie/
 
 ## 📦 API Endpoints
 
-### Auth
-- `POST /api/auth/register`
-- `POST /api/auth/login`
+### User
+- `POST   /api/users/register` - Register a new user
+- `POST   /api/users/login` - User login (returns JWT)
+- `GET    /api/users/:id` - Get user by ID
+- `PUT    /api/users/:id` - Update user details
+- `DELETE /api/users/:id` - Delete a user
+- `GET    /api/users/:id/summary` - Get user summary (total balance, income, expenses)
+- `GET    /api/users/:id/categories` - Get all categories for a user
+- `GET    /api/users/:id/transactions` - Get all transactions for a user
 
-### Transactions
-- `GET /api/transactions`
-- `POST /api/transactions`
-- `PUT /api/transactions/:id`
-- `DELETE /api/transactions/:id`
+
+### Category
+- `GET    /api/categories` - Get all categories
+- `POST   /api/categories` - Create a new category
+- `GET    /api/categories/:id` - Get category by ID
+- `PUT    /api/categories/:id` - Update a category
+- `DELETE /api/categories/:id` - Delete a category
+
+### Transaction
+- `GET    /api/transactions` - Get all transactions (optionally filter by user/category/type/date)
+- `POST   /api/transactions` - Create a new transaction
+- `GET    /api/transactions/:id` - Get transaction by ID
+- `PUT    /api/transactions/:id` - Update a transaction
+- `DELETE /api/transactions/:id` - Delete a transaction
 
 ---
 

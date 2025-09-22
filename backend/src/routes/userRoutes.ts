@@ -10,7 +10,7 @@ router.get("/users", async (req, res) => {
     res.json(users);
   } catch (error) {
     console.error("Error fetching users:", error);
-    res.status(500).json({ error: "Something went wrong" });
+    res.status(500).json({ error: "Error fetching users" });
   }
 });
 
@@ -23,7 +23,7 @@ router.get("/user/:id", async (req, res) => {
     res.json(user);
   } catch (error) {
     console.error("Error fetching user:", error);
-    res.status(500).json({ error: "Something went wrong" });
+    res.status(500).json({ error: "Error fetching user with ID " + userId });
   }
 });
 
