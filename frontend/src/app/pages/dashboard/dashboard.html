@@ -4,19 +4,19 @@
   <div class="summary-cards">
     <app-dashboard-card
       [title]="'Total Balance'"
-      [amount]="transactionSummary.total.toString() | currency"
+      [amount]="(transactionSummary.total.toString() | currency)!"
       [icon]="'💵'"
       [detail]="'+0.0% from income'"
     ></app-dashboard-card>
     <app-dashboard-card
       [title]="'Income'"
-      [amount]="transactionSummary.income.toString() | currency"
+      [amount]="(transactionSummary.income.toString() | currency)!"
       [icon]="'📈'"
       [detail]="'0 transactions'"
     ></app-dashboard-card>
     <app-dashboard-card
       [title]="'Expenses'"
-      [amount]="transactionSummary.expense.toString() | currency"
+      [amount]="(transactionSummary.expense.toString() | currency)!"
       [icon]="'📉'"
       [detail]="'0 transactions'"
     ></app-dashboard-card>
@@ -30,10 +30,15 @@
   <div class="recent-activity">
     <p id="recent-activity-title">Recent Activity</p>
     <div class="activity-cards">
-      <app-activity-card></app-activity-card>
-      <app-activity-card></app-activity-card>
-      <app-activity-card></app-activity-card>
-      <app-activity-card></app-activity-card>
+      @for (transaction of transactions; track transaction.id) {
+        <app-activity-card
+          [title]="transaction.title"
+          [description]="transaction.description"
+          [amount]="(transaction.amount | currency)!"
+          [date]="(transaction.date | date:'shortDate')!"
+        ></app-activity-card>
+      }
+    
     </div>
   </div>
 </div>

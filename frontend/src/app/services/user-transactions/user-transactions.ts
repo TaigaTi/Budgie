@@ -7,9 +7,12 @@ export interface Transaction {
   id: number;
   amount: number;
   date: string;
+  title: string;
   description: string;
   category: string;
+  categoryId: number;
   type: 'EXPENSE' | 'INCOME';
+  userId: number;
 }
 
 @Injectable({

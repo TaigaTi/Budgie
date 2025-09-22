@@ -3,11 +3,11 @@ import { DashboardCard } from '../../shared/components/dashboard-card/dashboard-
 import { ActivityCard } from '../../shared/components/activity-card/activity-card';
 import { Transaction, UserTransactions } from '../../services/user-transactions/user-transactions';
 import { count } from 'rxjs';
-import { CurrencyPipe } from '@angular/common';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-dashboard',
-  imports: [DashboardCard, ActivityCard, CurrencyPipe],
+  imports: [DashboardCard, ActivityCard, CommonModule],
   templateUrl: './dashboard.html',
   styleUrl: './dashboard.scss',
 })

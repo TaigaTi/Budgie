@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-activity-card',
@@ -7,5 +7,8 @@ import { Component } from '@angular/core';
   styleUrl: './activity-card.scss'
 })
 export class ActivityCard {
-
+  @Input() title!: string;
+  @Input() description!: string;
+  @Input() date!: string;
+  @Input() amount!: string;
 }

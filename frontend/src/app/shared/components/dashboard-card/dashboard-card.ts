@@ -10,6 +10,6 @@ import { Component, Input } from '@angular/core';
 export class DashboardCard {
   @Input() title!: string;
   @Input() icon!: string;
-  @Input() amount!: CurrencyPipe;
+  @Input() amount!: string;
   @Input() detail!: string;
 }
