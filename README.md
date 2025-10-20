@@ -42,5 +42,7 @@ Backend API: http://localhost:3000/api
 # 📦 Environment Variables
 Make sure to copy the .env.example file to .env in the /backend folder and set your variables:
 
+```
 DATABASE_URL=postgresql://user:password@db:5432/budgiedb
 JWT_SECRET=your_secret_key
+```
