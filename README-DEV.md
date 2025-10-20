@@ -9,7 +9,7 @@ Welcome, developer! This is the dev documentation for **Budgie** — a fun and f
 ## 📁 Folder Structure
 ```
 budgie/
-├── backend/ # Node.js backend (Express + Prisma)
+├── backend/ # NestJS backend
 ├── frontend/ # Angular frontend
 ├── docker/ # Docker-related files
 └── docker-compose.yml
