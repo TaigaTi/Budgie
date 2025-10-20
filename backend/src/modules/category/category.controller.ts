@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Param, Put } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Put } from '@nestjs/common';
 import { PrismaService } from 'src/modules/prisma/prisma.service';
 import { CategoryService } from './category.service';
 import { ApiTags } from '@nestjs/swagger';
@@ -30,5 +30,11 @@ export class CategoryController {
     const categoryId = parseInt(id);
 
     await this.categoryService.updateCategory(categoryId, updateCategoryDto);
+  }
+
+  @Delete('/:id')
+  async deleteCategory(@Param('id') id: string) {
+    const categoryId = parseInt(id);
+    await this.categoryService.deleteCategory(categoryId);
   }
 }
