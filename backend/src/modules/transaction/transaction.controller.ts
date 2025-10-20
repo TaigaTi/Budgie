@@ -1,9 +1,9 @@
-import { Controller, Get, Param, Post } from '@nestjs/common';
+import { Controller, Delete, Get, Param, Post, Put } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
 import { TransactionService } from './transaction.service';
 import { PrismaService } from 'src/modules/prisma/prisma.service';
 
-@ApiTags('transactions')
+@ApiTags('Transactions')
 @Controller('transactions')
 export class TransactionController {
   constructor(
@@ -16,6 +16,11 @@ export class TransactionController {
     return await this.prisma.transaction.findMany();
   }
 
+  @Post('')
+  async createTransaction() {
+    return await this.transactionService.createTransaction();
+  }
+
   @Get('/:id')
   async getTransactionById(@Param('id') id: string) {
     return await this.prisma.transaction.findUnique({
@@ -23,9 +28,14 @@ export class TransactionController {
     });
   }
 
-  @Post('/new')
-  async createTransaction() {
-    return await this.transactionService.createTransaction();
+  @Put('/:id')
+  async updateTransaction(@Param('id') id: string) {
+    return await this.transactionService.updateTransaction(id);
+  }
+
+  @Delete('/:id')
+  async deleteTransaction(@Param('id') id: string) {
+    return await this.transactionService.deleteTransaction(id);
   }
 
   @Get('/:id/summary')

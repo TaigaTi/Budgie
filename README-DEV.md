@@ -51,6 +51,7 @@ budgie/
 - `GET    /api/transactions/:id` - Get transaction by ID
 - `PUT    /api/transactions/:id` - Update a transaction
 - `DELETE /api/transactions/:id` - Delete a transaction
+- `GET    /api/transactions/:id/summary` - Get transaction summary by ID
 
 ---
 

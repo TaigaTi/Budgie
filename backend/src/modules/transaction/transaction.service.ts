@@ -30,4 +30,23 @@ export class TransactionService {
       },
     });
   }
+
+  async updateTransaction(id: string) {
+    const transactionId = parseInt(id);
+
+    return await this.prismaService.transaction.update({
+      where: { id: transactionId },
+      data: {
+        title: 'Updated Transaction',
+        amount: 150,
+      },
+    });
+  }
+
+  async deleteTransaction(id: string) {
+    const transactionId = parseInt(id);
+    return await this.prismaService.transaction.delete({
+      where: { id: transactionId },
+    });
+  }
 }
