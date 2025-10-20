@@ -19,15 +19,15 @@ export interface Transaction {
   providedIn: 'root'
 })
 export class UserTransactions {
-  private userTransactionsEndpoint = '/api/user/1/transactions';
+  private userTransactionsEndpoint = 'users/1/transactions';
   private transactionsSubject = new BehaviorSubject<Transaction[]>([]);
   public transactions$ = this.transactionsSubject.asObservable();
 
   constructor(private http: HttpClient) {}
   
   getTransactions(): Observable<Transaction[]> {
-      return this.http.get<Transaction[]>(`${environment.API_URL}${this.userTransactionsEndpoint}`).pipe(
-      tap((transactions) => this.transactionsSubject.next(transactions))
+      return this.http.get<Transaction[]>(environment.API_URL + this.userTransactionsEndpoint).pipe(
+        tap((transactions) => this.transactionsSubject.next(transactions))
     );
   }
 

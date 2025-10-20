@@ -1,99 +1,86 @@
-import { PrismaClient } from '../src/generated/prisma';
+import { PrismaClient, TransactionType } from '@prisma/client';
 
 const prisma = new PrismaClient();
 
 async function main() {
-  // Create categories
-  const categories = await prisma.category.createMany({
-    data: [
-      { name: 'Salary' },
-      { name: 'Freelance' },
-      { name: 'Groceries' },
-      { name: 'Utilities' },
-      { name: 'Entertainment' },
-    ],
+  console.log('🌱 Seeding database...');
+
+  // Create some categories
+  const food = await prisma.category.create({
+    data: { name: 'Food' },
   });
 
-  // Create a user
-  const user = await prisma.user.create({
+  const rent = await prisma.category.create({
+    data: { name: 'Rent' },
+  });
+
+  const salary = await prisma.category.create({
+    data: { name: 'Salary' },
+  });
+
+  // Create some users
+  const user1 = await prisma.user.create({
     data: {
-      name: 'Jane Doe',
-      email: 'jane@example.com',
+      name: 'Alice Johnson',
+      email: 'alice@example.com',
     },
   });
 
-  // Get categories for relation
-  const allCategories = await prisma.category.findMany();
+  const user2 = await prisma.user.create({
+    data: {
+      name: 'Bob Smith',
+      email: 'bob@example.com',
+    },
+  });
 
-  // Create transactions
-interface TransactionSeedData {
-    title: string;
-    description: string;
-    amount: number;
-    date: Date;
-    type: 'INCOME' | 'EXPENSE';
-    Categoryid: number;
-    userId: number;
-}
-
-await prisma.transaction.createMany({
+  // Create some transactions for Alice
+  await prisma.transaction.createMany({
     data: [
-        {
-            title: 'Monthly salary',
-            description: 'Main job salary',
-            amount: 3500,
-            date: new Date('2024-01-01'),
-            type: 'INCOME',
-            Categoryid: allCategories.find((c: { name: string; id: number }) => c.name === 'Salary')!.id,
-            userId: user.id,
-        },
-        {
-            title: 'Web design project',
-            description: 'Freelance project for client',
-            amount: 500,
-            date: new Date('2024-01-19'),
-            type: 'INCOME',
-            Categoryid: allCategories.find((c: { name: string; id: number }) => c.name === 'Freelance')!.id,
-            userId: user.id,
-        },
-        {
-            title: 'Supermarket',
-            description: 'Groceries for the week',
-            amount: 120,
-            date: new Date('2024-01-10'),
-            type: 'EXPENSE',
-            Categoryid: allCategories.find((c: { name: string; id: number }) => c.name === 'Groceries')!.id,
-            userId: user.id,
-        },
-        {
-            title: 'Electricity bill',
-            description: 'Monthly utilities',
-            amount: 60,
-            date: new Date('2024-01-12'),
-            type: 'EXPENSE',
-            Categoryid: allCategories.find((c: { name: string; id: number }) => c.name === 'Utilities')!.id,
-            userId: user.id,
-        },
-        {
-            title: 'Movie night',
-            description: 'Cinema with friends',
-            amount: 30,
-            date: new Date('2024-01-15'),
-            type: 'EXPENSE',
-            Categoryid: allCategories.find((c: { name: string; id: number }) => c.name === 'Entertainment')!.id,
-            userId: user.id,
-        },
-    ] as TransactionSeedData[],
-});
+      {
+        title: 'Monthly Salary',
+        description: 'Company payment',
+        amount: 5000,
+        date: new Date(),
+        type: TransactionType.INCOME,
+        userId: user1.id,
+        Categoryid: salary.id, // 👈 match schema
+      },
+      {
+        title: 'Grocery shopping',
+        description: 'Bought fruits and veggies',
+        amount: 120.5,
+        date: new Date(),
+        type: TransactionType.EXPENSE,
+        userId: user1.id,
+        Categoryid: food.id,
+      },
+    ],
+  });
 
-  console.log('Database seeded!');
+  // Create some transactions for Bob
+  await prisma.transaction.createMany({
+    data: [
+      {
+        title: 'Apartment Rent',
+        description: 'Monthly rent payment',
+        amount: 1200,
+        date: new Date(),
+        type: TransactionType.EXPENSE,
+        userId: user2.id,
+        Categoryid: rent.id, // 👈 match schema
+      },
+    ],
+  });
+
+  console.log('✅ Seeding completed!');
 }
 
 main()
-  .catch(e => {
-    console.error(e);
-    process.exit(1);
-  })
-  .finally(async () => {
+  .then(async () => {
     await prisma.$disconnect();
+  })
+  .catch(async (e) => {
+    console.error(e);
+    await prisma.$disconnect();
+    process.exit(1);
   });
