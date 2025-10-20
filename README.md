@@ -5,7 +5,7 @@
 ## 🔧 Tech Stack
 
 - **Frontend**: Angular
-- **Backend**: Node.js + Express
+- **Backend**: NestJS
 - **ORM**: Prisma
 - **Database**: PostgreSQL
 - **Containerization**: Docker + Docker Compose
